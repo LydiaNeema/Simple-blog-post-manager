@@ -1,0 +1,26 @@
+{
+    "Posts":[
+        {
+"id":1,
+"Post Title":"Forest Walk",
+"Author Name":"Calin Stan",
+"Image Url":"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+"Post Content":"This is an example"
+        },
+        {
+"id":2,         
+"Post Title":"City/Urban vibes",
+"Author Name":"Roman Kraft",
+"Image Url":"https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+"Post Content":"welcome to city Vibes"
+        },
+        {
+"id":3,
+"Post Title":"Coffee / Lifestyle",
+"Author Name":"Annie Spratt",
+"Image Url":"https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+"Post Content":"Lovers of coffee."
+        }
+       
+    ]
+}
