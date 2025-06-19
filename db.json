@@ -1,13 +1,6 @@
 {
   "Posts": [
     {
-      "id": "1",
-      "Title": "Forest Walk",
-      "Author": "Calin Stan",
-      "Image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format",
-      "Content": "This is an example"
-    },
-    {
       "id": "2",
       "Title": "City/Urban vibes",
       "Author": "Roman Kraft",

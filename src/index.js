@@ -45,10 +45,37 @@ function handlePostClick(post) {
         <p><strong>Author:</strong> ${post.Author}</p>
         <p>${post.Content}</p>
         <img src="${post.Image}" alt="${post.Title}" style="max-width: 100%; height: auto;">
+        <div class="actions">
+        <button onclick="showEditForm('${post.Title}', '${post.Author}', '${post.Image}',${post.Content}')" class="myButton"><i class="fas fa-edit"></button>
+          <button class="delete-btn" data-id="${post.id}"><i class="fas fa-trash-alt"></i></button>
+        </div>
     `;
-
-    yourblog.appendChild(display);
+     yourblog.appendChild(display);
+    const deleteBtn = display.querySelector('.delete-btn');
+deleteBtn.addEventListener('click', () => {
+    deletePost(post.id);
+});
+ 
 }
+function deletePost(postId){
+      if (confirm("Are you sure you want to delete this post?")) {
+        
+      fetch(`${APIURL}/${postId}`,{
+        method:'DELETE'
+})
+        .then(response=>{
+            
+            if (response.ok) {
+                alert('Post has been successfully deleted');
+            document.getElementById('yourblog').innerHTML = "";
+                displayPosts();
+            } else {
+                console.error("Failed to delete post on the server.");
+            }
+        })
+        
+    
+}}
 
 function addNewPostListener() {
     const myform = document.getElementById('myform');
@@ -82,5 +109,8 @@ function addNewPostListener() {
     });
 }
 
-displayPosts();
-addNewPostListener();
+function main() {
+    displayPosts();
+    addNewPostListener();
+}
+document.addEventListener("DOMContentLoaded", main);
