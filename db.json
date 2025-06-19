@@ -4,21 +4,21 @@
 "id":1,
 "Title":"Forest Walk",
 "Author":"Calin Stan",
-"Image Url":"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+"Image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format",
 "Content":"This is an example"
         },
         {
 "id":2,         
 "Title":"City/Urban vibes",
 "Author":"Roman Kraft",
-"Image Url":"https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+"Image":"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&auto=format",
 "Content":"welcome to city Vibes"
         },
         {
 "id":3,
 "Title":"Coffee / Lifestyle",
 "Author":"Annie Spratt",
-"Image Url":"https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+"Image":"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format",
 "Content":"Lovers of coffee."
         }
        
