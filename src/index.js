@@ -34,7 +34,7 @@ function renderSinglePost(post) {
     postlist.appendChild(orderedlist);
     blogs.appendChild(postlist);
 }
-
+// function to handle the event a blog is clicked.
 function handlePostClick(post) {
     const yourblog = document.getElementById('yourblog');
     yourblog.innerHTML = "";
@@ -44,7 +44,7 @@ function handlePostClick(post) {
     display.innerHTML = `
         <h2>${post.Title}</h2>
         <p><strong>Author:</strong> ${post.Author}</p>
-        <p>${post.Content}</p>
+        <p >${post.Content}</p>
         <img src="${post.Image}" alt="${post.Title}" style="max-width: 100%; height: auto;">
         <div class="actions">
         <button onclick="showEditForm('${post.id}', \`${post.Title}\`, \`${post.Content}\`)" class="myButton">
@@ -68,8 +68,10 @@ function showEditForm (postId, currentTitle,currentContent,post) {
         <br>
         <textarea id="edit-content-${postId}" cols="30"rows="10" required>${currentContent}</textarea>
         <br>
+          <div class="form-buttons">
         <button type="button" onclick="saveEdit('${postId}')" class="myButton"> <i class="fas fa-edit" style="color: white;"></i></button>
         <button type="button" onclick='cancelEdit(${JSON.stringify(post)})' class ="myDeleteButton"><i class="fas fa-times" style="color: white;"></i></button>
+        </div>
         </form>
         `;
 }
