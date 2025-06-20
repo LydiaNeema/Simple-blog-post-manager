@@ -60,6 +60,7 @@ deleteBtn.addEventListener('click', () => {
 });
  
 }
+// function to show fields of an exsiting post and allow editing
 function showEditForm (postId, currentTitle,currentContent,post) {
     const postDiv = document.getElementById(`post-${postId}`);
     postDiv.innerHTML = `
@@ -75,6 +76,7 @@ function showEditForm (postId, currentTitle,currentContent,post) {
         </form>
         `;
 }
+//function to save changes made to a post.
 function saveEdit(postId){
     const newTitle =document.getElementById(`editTitle-${postId}`).value;
     const newContent =document.getElementById(`edit-content-${postId}`).value;
@@ -96,11 +98,12 @@ function saveEdit(postId){
             document.getElementById("yourblog").innerHTML = ""; 
         })
     }
+    // funtion to cancel editing of the post
 function cancelEdit(post) {
     handlePostClick(post);
 }
 
-
+// function to delete a post from the database
 function deletePost(postId){
       if (confirm("Are you sure you want to delete this post?")) {
         
@@ -120,7 +123,7 @@ function deletePost(postId){
         
     
 }}
-
+// function for creating a new post as a user
 function addNewPostListener() {
     const myform = document.getElementById('myform');
     const title = document.getElementById('Title');
