@@ -39,6 +39,7 @@ function handlePostClick(post) {
     const yourblog = document.getElementById('yourblog');
     yourblog.innerHTML = "";
     const display = document.createElement('div');
+    display.id = `post-${post.id}`; 
 
     display.innerHTML = `
         <h2>${post.Title}</h2>
@@ -46,7 +47,9 @@ function handlePostClick(post) {
         <p>${post.Content}</p>
         <img src="${post.Image}" alt="${post.Title}" style="max-width: 100%; height: auto;">
         <div class="actions">
-        <button onclick="showEditForm('${post.Title}', '${post.Author}', '${post.Image}',${post.Content}')" class="myButton"><i class="fas fa-edit"></button>
+        <button onclick="showEditForm('${post.id}', \`${post.Title}\`, \`${post.Content}\`)" class="myButton">
+    <i class="fas fa-edit"></i>
+</button>
           <button class="delete-btn" data-id="${post.id}"><i class="fas fa-trash-alt"></i></button>
         </div>
     `;
@@ -57,6 +60,45 @@ deleteBtn.addEventListener('click', () => {
 });
  
 }
+function showEditForm (postId, currentTitle,currentContent,post) {
+    const postDiv = document.getElementById(`post-${postId}`);
+    postDiv.innerHTML = `
+    <form id="editForm">
+        <input type="text" id="editTitle-${postId}" value="${currentTitle}"  style="width:250px; height=50px;"required>
+        <br>
+        <textarea id="edit-content-${postId}" cols="30"rows="10" required>${currentContent}</textarea>
+        <br>
+        <button type="button" onclick="saveEdit('${postId}')" class="myButton"> <i class="fas fa-edit" style="color: white;"></i></button>
+        <button type="button" onclick='cancelEdit(${JSON.stringify(post)})' class ="myDeleteButton"><i class="fas fa-times" style="color: white;"></i></button>
+        </form>
+        `;
+}
+function saveEdit(postId){
+    const newTitle =document.getElementById(`editTitle-${postId}`).value;
+    const newContent =document.getElementById(`edit-content-${postId}`).value;
+    fetch(`${APIURL}/${postId}`,{
+        method:'PATCH',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(
+            {Title: newTitle,
+                 Content: newContent
+                })
+            })
+        .then(response=>response.json())
+        .then(data=>{
+            alert("post updated successfully");
+            console.log(data);
+            displayPosts();
+            document.getElementById("yourblog").innerHTML = ""; 
+        })
+    }
+function cancelEdit(post) {
+    handlePostClick(post);
+}
+
+
 function deletePost(postId){
       if (confirm("Are you sure you want to delete this post?")) {
         

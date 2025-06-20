@@ -42,6 +42,7 @@ width: 30%;
     padding: 20px;
     color: #1b1b1b;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top:10px;
 }
 .lower{
    
@@ -54,6 +55,7 @@ width: 30%;
     padding: 20px;
     color: #1b1b1b;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top:10px;
 }
 
 #containerh{
@@ -73,6 +75,7 @@ width: 700px;
 height: 800px;
 background-color: #8DD8FF;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+margin-top:10px;
     
 }
 .form input{
