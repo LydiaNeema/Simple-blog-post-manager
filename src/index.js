@@ -1,5 +1,9 @@
+ 
+//Initialized a variable to access my local server
+
 const APIURL = "http://localhost:3000/Posts";
-// function to display my exsiting database blogs
+
+//initiaized a function  to display my exsiting database blogs
 function displayPosts() {
     const blogs = document.getElementById('blogs');
     blogs.innerHTML = ""; // Clear existing posts
@@ -8,7 +12,7 @@ function displayPosts() {
         .then(response => response.json())
         .then(Posts => {
             Posts.forEach(post => {
-                renderSinglePost(post); // Reuse rendering logic
+                renderSinglePost(post);
             });
         });
 }
